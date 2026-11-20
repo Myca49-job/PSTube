@@ -1,56 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PSTube - Watch Videos</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+const searchInput = document.getElementById("searchInput");
+const videoGrid = document.getElementById("videoGrid");
 
-<header>
-    <div class="logo">▶ PSTube</div>
-    <input class="search" id="searchInput"
-        type="search" placeholder="Search videos...">
-</header>
+searchInput.addEventListener("input", function () {
+    const search = searchInput.value.toLowerCase();
 
-<nav class="sidebar">
-    <a href="#">🏠 Home</a>
-    <a href="#">🔥 Trending</a>
-    <a href="#">📺 Subscriptions</a>
-    <a href="#">🕘 History</a>
-    <a href="#">👍 Liked videos</a>
-</nav>
+    const videos = videoGrid.querySelectorAll(".video");
 
-<main>
-    <h1>Explore videos</h1>
-    
+    videos.forEach(function (video) {
+        const title = video.querySelector("h3").textContent.toLowerCase();
 
-    <div class="videos" id="videoGrid">
-
-        <div class="video">
-            <img src="https://picsum.photos/400/225?random=1">
-            <h3>Welcome to PSTube!</h3>
-        </div>
-
-        <div class="video">
-            <img src="https://picsum.photos/400/225?random=2">
-            <h3>Gaming Videos</h3>
-        </div>
-
-        <div class="video">
-            <img src="https://picsum.photos/400/225?random=3">
-            <h3>Music and Entertainment</h3>
-        </div>
-
-        <div class="video">
-            <img src="https://picsum.photos/400/225?random=4">
-            <h3>Funny Moments</h3>
-        </div>
-
-    </div>
-</main>
-
-<script src="script.js"></script>
-</body>
-</html>
+        video.style.display = title.includes(search)
+            ? "block"
+            : "none";
+    });
+});
