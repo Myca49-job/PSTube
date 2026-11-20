@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload - PSTube</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">▶ PSTube</div>
+    <a href="index.html" style="color:white">Home</a>
+</header>
+
+<main style="margin: auto; max-width:600px">
+
+    <h1>Upload Video</h1>
+
+    
+
+    <input id="title" type="text"
+        placeholder="Video title"
+        style="padding:15px; width:100%">
+
+    
+
+    <input id="videoFile" type="file"
+        accept="video/*">
+
+    
+
+    <button onclick="uploadVideo()"
+        style="padding:15px; cursor:pointer">
+        Upload Video
+    </button>
+
+    <p id="message" style="margin-top:20px"></p>
+
+</main>
+
+<script src="script.js"></script>
+
+</body>
+</html>
