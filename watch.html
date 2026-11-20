@@ -38,15 +38,15 @@ if (title) {
         Welcome to the PSTube video player.
     </p>
 
-    <button onclick="alert('Liked!')"
-        style="padding:12px; margin-top:20px; cursor:pointer">
-        👍 Like
-    </button>
+<button onclick="toggleLike(this, 'video1')">
+    👍 Like
+</button>
 
-    <button onclick="alert('Subscribed!')"
-        style="padding:12px; cursor:pointer">
-        Subscribe
-    </button>
+<button onclick="toggleSubscribe(this, 'PSTube')">
+    Subscribe
+</button>
+
+<script src="engagement.js"></script>
 
 </main>
 
