@@ -7,6 +7,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <script>
+const params = new URLSearchParams(window.location.search);
+const title = params.get("title");
+
+if (title) {
+    document.getElementById("videoTitle").textContent = title;
+}
+</script>
 
 <header>
     <div class="logo">▶ PSTube</div>
@@ -22,7 +30,9 @@
         src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4">
     </video>
 
-    <h2 style="margin-top:20px">Welcome to PSTube!</h2>
+    <h2 style="margin-top:20px">
+        Welcome to PSTube!
+    </h2>
 
     <p style="color:#aaa; margin-top:10px">
         Welcome to the PSTube video player.
