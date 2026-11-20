@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSTube Comments</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">▶ PSTube</div>
+    <a href="index.html" style="color:white">🏠 Home</a>
+</header>
+
+<main style="max-width:700px;margin:30px auto">
+
+    <h1>💬 Comments</h1>
+    
+
+    <input id="commentInput"
+        placeholder="Write a comment..."
+        style="width:75%;padding:14px">
+
+    <button onclick="addComment()"
+        style="padding:14px">
+        Post
+    </button>
+
+    <div id="commentsList" style="margin-top:30px"></div>
+
+</main>
+
+<script>
+function addComment() {
+    const input = document.getElementById("commentInput");
+    const list = document.getElementById("commentsList");
+
+    if (!input.value.trim()) return;
+
+    const comment = document.createElement("p");
+    comment.textContent = "👤 PSTube User: " + input.value;
+    comment.style.padding = "15px";
+    comment.style.background = "#222";
+    comment.style.marginBottom = "10px";
+    comment.style.borderRadius = "10px";
+
+    list.prepend(comment);
+    input.value = "";
+}
+</script>
+
+</body>
+</html>
