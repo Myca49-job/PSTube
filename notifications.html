@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications - PSTube</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">▶ PSTube</div>
+    <a href="index.html" style="color:white">🏠 Home</a>
+</header>
+
+<main style="max-width:750px;margin:30px auto">
+
+    <h1>🔔 Notifications</h1>
+    
+
+    <div id="notificationList"></div>
+
+    <button onclick="clearNotifications()"
+        style="padding:12px;margin-top:20px">
+        Clear notifications
+    </button>
+
+</main>
+
+<script>
+const notifications = JSON.parse(
+    localStorage.getItem("pstube_notifications") || "[]"
+);
+
+const list = document.getElementById("notificationList");
+
+function showNotifications() {
+    list.innerHTML = "";
+
+    if (notifications.length === 0) {
+        list.textContent = "No notifications yet.";
+        return;
+    }
+
+    notifications.forEach(function(item) {
+        const div = document.createElement("div");
+        div.style.padding = "18px";
+        div.style.background = "#222";
+        div.style.marginBottom = "12px";
+        div.style.borderRadius = "10px";
+        div.textContent = "🔔 " + item;
+        list.appendChild(div);
+    });
+}
+
+function clearNotifications() {
+    localStorage.removeItem("pstube_notifications");
+    notifications.length = 0;
+    showNotifications();
+}
+
+showNotifications();
+</script>
+
+</body>
+</html>
